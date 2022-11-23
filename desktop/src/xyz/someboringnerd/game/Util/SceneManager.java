@@ -2,6 +2,7 @@ package xyz.someboringnerd.game.Util;
 
 import xyz.someboringnerd.game.Entity.blocks.Block;
 import xyz.someboringnerd.game.Scene.MainMenu;
+import xyz.someboringnerd.game.Scene.WalkingScene;
 
 import java.util.List;
 import java.util.Objects;
@@ -13,28 +14,26 @@ public class SceneManager
     {
         return loaded;
     }
-    private static CopyOnWriteArrayList<Scene> SceneList = new CopyOnWriteArrayList<>();
     private static Scene loaded;
 
-    public SceneManager()
+    public static void LoadScene(String _Scene)
     {
-        SceneList.add(new MainMenu("MainMenu"));
-    }
+        if(loaded != null) loaded.dispose();
 
-    public static void LoadScene(String Scene)
-    {
-        for (Scene scene: SceneList)
-        {
-            if(Scene.equals(scene.getName()))
-            {
-                if(loaded != null) {
-                    loaded.dispose();
-                }
+        switch (_Scene){
+            case "MainMenu":
+                MainMenu main = new MainMenu("MainMenu");
+                main.Init();
+                loaded = main;
+                break;
+            case "WalkingScene":
+                WalkingScene walk = new WalkingScene("WalkingScene");
+                walk.Init();
+                loaded = walk;
+                break;
+            default:
 
-                scene.Init();
-                loaded = scene;
-                return;
-            }
+                break;
         }
     }
 }

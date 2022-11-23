@@ -6,26 +6,35 @@ import xyz.someboringnerd.game.WalkingSimulator;
 public abstract class Scene
 {
 
-    private static String name;
+    private static String _name;
 
-    public static String getName()
+    public static String getSceneName()
     {
-        return name;
+        return _name;
     }
 
-    public Scene(String _name)
+    public Scene(String __name)
     {
-        name = _name;
+
+        _name = __name;
+        Init();
     }
 
     public abstract void Init();
+
+    /**
+     * Simple function to change the size of the play area.
+     */
+    protected void ChangeBoundary(){
+
+    }
 
     public void dispose()
     {
         WalkingSimulator.getBlockManager().blockMap.clear();
         WalkingSimulator.getBlockManager().groundMap.clear();
 
-        WalkingSimulator.getEntityManager().player = null;
+        WalkingSimulator.getEntityManager().removePlayer();
         WalkingSimulator.getEntityManager().entityMap.clear();
     }
 

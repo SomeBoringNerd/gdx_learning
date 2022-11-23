@@ -6,21 +6,28 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Entity
 {
     private int Health;
-    private int Name;
+    private String Name;
     private Type type;
 
-    int x, y;
+    public static int x, y;
 
     private Texture createTexture;
 
     public Entity(int health, String name, Type type, String texturePath)
     {
         createTexture = new Texture(texturePath + ".png");
+        Health = health;
+        Name = name;
+        this.type = type;
     }
 
     public int getHealth()
     {
         return Health;
+    }
+    public String getName()
+    {
+        return Name;
     }
 
     public void Update()

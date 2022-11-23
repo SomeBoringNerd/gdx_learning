@@ -11,13 +11,17 @@ import java.util.*;
 public class EntityManager
 {
 
-    public Player player;
+    public static Player player;
+
+    public static Player getPlayer(){
+        return player;
+    }
 
     public HashMap<Entity, UUID> entityMap = new HashMap();
 
     public EntityManager()
     {
-        //player = new Player(20, "Player", Type.PLAYER, Gdx.files.internal("Textures/DebugTextures/PlayerTest").path());
+        //player =
     }
 
     public void Render(SpriteBatch batch)
@@ -30,5 +34,10 @@ public class EntityManager
         {
             keyset.getKey().render(batch);
         }
+    }
+
+    public void removePlayer()
+    {
+        player = null;
     }
 }

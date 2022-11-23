@@ -2,6 +2,7 @@ package xyz.someboringnerd.game.Entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import xyz.someboringnerd.game.WalkingSimulator;
 
 public class Player extends Entity
 {
@@ -31,17 +32,17 @@ public class Player extends Entity
         }
 
 
-        if(y >= 0 && y <= 418) {
+        if(y >= -WalkingSimulator.MaxHeight && y <= WalkingSimulator.MaxHeight - 32) {
             if (Gdx.input.isKeyPressed(Input.Keys.UP)) y += 2 * multi;
             else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) y -= 2 * multi;
         }else{
-            y = y <= 0 ? 0 : 418;
+            y = y <= -WalkingSimulator.MaxHeight ? -WalkingSimulator.MaxHeight : WalkingSimulator.MaxHeight - 32;
         }
-        if(x >= 0 && x <= 610) {
+        if(x >= -WalkingSimulator.MaxWidth && x <= WalkingSimulator.MaxWidth - 32) {
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) x -= 2 * multi;
             else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) x += 2 * multi;
         }else{
-            x = x <= 0 ? 0 : 610;
+            x = x <= -WalkingSimulator.MaxWidth ? -WalkingSimulator.MaxWidth : WalkingSimulator.MaxWidth - 32;
         }
     }
 }
