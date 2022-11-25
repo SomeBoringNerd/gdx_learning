@@ -13,7 +13,7 @@ import xyz.someboringnerd.game.Util.SceneManager;
 public class WalkingSimulator extends ApplicationAdapter {
 	SpriteBatch batch;
 
-	private OrthographicCamera camera;
+	public static OrthographicCamera camera;
 
 	public static int FrameCount;
 
@@ -56,6 +56,7 @@ public class WalkingSimulator extends ApplicationAdapter {
 
 			camera.position.set(new Vector3(getEntityManager().player.x, getEntityManager().player.y, 30));
 
+
 		}else{
 			batch.setProjectionMatrix(camera.projection);
 		}
@@ -63,13 +64,13 @@ public class WalkingSimulator extends ApplicationAdapter {
 		batch.begin();
 
 		getBlockManager().Render(batch);
+		getEntityManager().Render(batch);
 
 		if(SceneManager.getActiveScene() != null)
 		{
 			SceneManager.getActiveScene().Render(batch);
 		}
 
-		getEntityManager().Render(batch);
 		camera.update();
 		batch.end();
 

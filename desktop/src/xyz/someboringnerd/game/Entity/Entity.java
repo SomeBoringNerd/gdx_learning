@@ -2,6 +2,7 @@ package xyz.someboringnerd.game.Entity;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class Entity
 {
@@ -18,6 +19,18 @@ public class Entity
         createTexture = new Texture(texturePath + ".png");
         Health = health;
         Name = name;
+        this.type = type;
+    }
+
+    public Entity(int health, String name, Type type, String texturePath, int _x, int _y)
+    {
+        createTexture = new Texture(texturePath + ".png");
+        Health = health;
+        Name = name;
+
+        x = _x;
+        y = _y;
+
         this.type = type;
     }
 
