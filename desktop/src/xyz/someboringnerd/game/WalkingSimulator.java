@@ -52,11 +52,9 @@ public class WalkingSimulator extends ApplicationAdapter {
 
 		if(getEntityManager().player != null)
 		{
+			camera.position.set(new Vector3(getEntityManager().player.getX(), getEntityManager().player.getY(), 4));
+
 			batch.setProjectionMatrix(camera.combined);
-
-			camera.position.set(new Vector3(getEntityManager().player.x, getEntityManager().player.y, 30));
-
-
 		}else{
 			batch.setProjectionMatrix(camera.projection);
 		}

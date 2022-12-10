@@ -1,9 +1,10 @@
 package xyz.someboringnerd.game.Util;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import xyz.someboringnerd.game.WalkingSimulator;
 
-public abstract class Scene
+public abstract class Scene extends Stage
 {
 
     private static String _name;

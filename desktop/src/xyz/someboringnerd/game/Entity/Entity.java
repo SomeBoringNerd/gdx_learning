@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class Entity
+public class Entity extends Actor
 {
     private int Health;
     private String Name;
@@ -28,8 +28,7 @@ public class Entity
         Health = health;
         Name = name;
 
-        x = _x;
-        y = _y;
+        setOrigin(_x, _y);
 
         this.type = type;
     }

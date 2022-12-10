@@ -8,7 +8,9 @@ public class FontManager
 {
 
 
-
+    public static BitmapFont getFont(){
+        return font;
+    }
     private static BitmapFont font;
 
     //Gdx.files.internal("fonts/party_confetti_18.fnt")
